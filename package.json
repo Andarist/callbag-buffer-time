@@ -1,6 +1,6 @@
 {
   "name": "callbag-buffer-time",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "👜 Callbag operator which buffers source values until provided time has passed.",
   "main": "dist/callbag-buffer-time.js",
   "module": "dist/callbag-buffer-time.esm.js",
