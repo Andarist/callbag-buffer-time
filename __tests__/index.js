@@ -1,6 +1,6 @@
-import forEach from 'callbag-for-each'
 import pipe from 'callbag-pipe'
 import subject from 'callbag-subject'
+import subscribe from 'callbag-subscribe'
 
 import bufferTime from '../src'
 
@@ -14,10 +14,10 @@ test('works', () => {
 
   const source = subject()
 
-  pipe(
+  const dispose = pipe(
     source,
     bufferTime(100),
-    forEach(values => {
+    subscribe(values => {
       actual.push(values)
     }),
   )
@@ -44,5 +44,6 @@ test('works', () => {
     })
     .then(() => {
       expect(actual).toEqual([[1, 2, 3], [4], []])
+      dispose()
     })
 })
